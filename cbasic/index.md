@@ -6,7 +6,7 @@
 
 [homework #01](./hw01/index.md)
 
-[homework #02](./404.md)
+[homework #02](../404.md)
 
 [Main](../index.md)
 
