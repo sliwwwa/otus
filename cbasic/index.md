@@ -1,4 +1,4 @@
-[Main](../../../index.md)
+[Main](../index.md)
 
 [Back](../index.md)
 
@@ -8,6 +8,6 @@
 
 [homework #02](./hw02/index.md)
 
-[Main](../../../index.md)
+[Main](../index.md)
 
 [Back](../index.md)
