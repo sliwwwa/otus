@@ -1,10 +1,10 @@
-I. Project's name
+# I. Project's name
 
 Dad's childhood
 
 
 
-II. Roles
+# II. Roles
 
  - player
  - gamemaker
@@ -13,9 +13,9 @@ II. Roles
 
 
 
-III. Roles' functionality
+# III. Roles' functionality
 
-player:
+## player:
 
 -opens the API
 -enters his name if he does so for the first time
