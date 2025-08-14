@@ -22,8 +22,8 @@ Dad's childhood
     + loads his last save if he did that before
     + saves his progress whenever he wants
 * progresses through the story
-+ creates his character of different classes, abilities and perks
-- enters the canon or made by gamemakers levels
+    + creates his character of different classes, abilities and perks
+        - enters the canon or made by gamemakers levels
   -gets answered questions, answers them
   -goes different ways and gets different endings according to his moves
   -finds upgrades for his character by exploring and fighting more
