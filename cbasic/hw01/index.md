@@ -103,4 +103,4 @@ V.UseCases
 
 ----------UseCase002----------
 
-[Authenticated and authorized user (role defined - [Player\])](./uc/uc002.md)
+[Authenticated and authorized user (role defined - \[Player\])](./uc/uc002.md)
