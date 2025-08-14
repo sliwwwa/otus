@@ -17,11 +17,11 @@ Dad's childhood
 
 ## player:
 
- - opens the API
- - enters his name if he does so for the first time
-  * loads his last save if he did that before
-  * saves his progress whenever he wants
- - progresses through the story
+* opens the API
+* enters his name if he does so for the first time
+    + loads his last save if he did that before
+    + saves his progress whenever he wants
+* progresses through the story
   -creates his character of different classes, abilities and perks
   -enters the canon or made by gamemakers levels
   -gets answered questions, answers them
@@ -29,7 +29,7 @@ Dad's childhood
   -finds upgrades for his character by exploring and fighting more
   -tracks his character's health, resistance and other stats
   -gears his character up to withstand the enemies' attacks and be stronger comparing to them
- - contacts support in a special chat when in these circumstances
+* contacts support in a special chat when in these circumstances
   -finds a bug or a defect
   -needs basic guidance to the game from reliable people
   -wants to make a suggestion
