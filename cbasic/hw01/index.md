@@ -6,7 +6,7 @@ Dad's childhood
 
 # II. Roles
 
-[* player][100]
+* player
 * gamemaker
 * moderator
 * administrator
@@ -15,7 +15,7 @@ Dad's childhood
 
 # III. Roles' functionality
 
-[100]## player:
+## player:
 
 * opens the API
 * enters his name if he does so for the first time
