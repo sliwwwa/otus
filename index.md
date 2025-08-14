@@ -4,4 +4,4 @@ I am currently studying an Otus course "C# basic" and here you can find my homew
 
 [cbasic](./cbasic/index.md)
 
-[cpro](./cpro/index.md)
+[cpro](./404.md)
