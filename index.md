@@ -2,7 +2,7 @@
 
 I am currently studying an Otus course "C# basic" and here you can find my homework
 
-### [__cbasic__](./cbasic/index.md)
+### [___cbasic___](./cbasic/index.md)
 
 [cpro](./404.md)
 
