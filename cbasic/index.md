@@ -1,4 +1,4 @@
-[Main](../index.md) [Back](../index.md)
+[Back](../index.md)          [Main](../index.md)
 
 ---
 
@@ -10,6 +10,4 @@
 
 ---
 
-[Main](../index.md)
-
-[Back](../index.md)
+[Back](../index.md)          [Main](../index.md)
