@@ -1,8 +1,5 @@
-###  
 [Back](../index.md)ㅤㅤㅤ[Main](../../index.md)
 #  
-
-
 # I. Project's name
 
 Dad's childhood
