@@ -1,4 +1,5 @@
-[Back](../index.md)          [Main](../../index.md)
+#  
+[Back](../index.md)ㅤㅤㅤ[Main](../../index.md)
 ---
 
 
@@ -107,10 +108,6 @@ Dad's childhood
 ## UseCase002
 
 [Authenticated and authorized user (role defined - \[Player\])](./uc/uc002.md)
-###  
-###  
-###  
-###  
 #  
 [Back](../index.md)ㅤㅤㅤ[Main](../../index.md)
 
