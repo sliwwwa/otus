@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/sliwwwa/otus/cbasic/dc/dc.core/dc.core.csproj": {}
+    "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj": {}
   },
   "projects": {
-    "/home/sliwwwa/otus/cbasic/dc/dc.core/dc.core.csproj": {
+    "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sliwwwa/otus/cbasic/dc/dc.core/dc.core.csproj",
+        "projectUniqueName": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
         "projectName": "dc.core",
-        "projectPath": "/home/sliwwwa/otus/cbasic/dc/dc.core/dc.core.csproj",
-        "packagesPath": "/home/sliwwwa/.nuget/packages/",
-        "outputPath": "/home/sliwwwa/otus/cbasic/dc/dc.core/obj/",
+        "projectPath": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
+        "packagesPath": "/home/vatsa/.nuget/packages/",
+        "outputPath": "/home/vatsa/otus/cbasic/dc/dc.core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/sliwwwa/.nuget/NuGet/NuGet.Config"
+          "/home/vatsa/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
