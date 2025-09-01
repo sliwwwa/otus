@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/vatsa/otus/cbasic/lessons/04_Methods/task03_Overloading/task03_Overloading.csproj": {}
+  },
+  "projects": {
+    "/home/vatsa/otus/cbasic/lessons/04_Methods/task03_Overloading/task03_Overloading.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/vatsa/otus/cbasic/lessons/04_Methods/task03_Overloading/task03_Overloading.csproj",
+        "projectName": "task03_Overloading",
+        "projectPath": "/home/vatsa/otus/cbasic/lessons/04_Methods/task03_Overloading/task03_Overloading.csproj",
+        "packagesPath": "/home/vatsa/.nuget/packages/",
+        "outputPath": "/home/vatsa/otus/cbasic/lessons/04_Methods/task03_Overloading/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/vatsa/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "/usr/lib/dotnet/library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
