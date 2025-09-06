@@ -40,17 +40,17 @@ namespace dc.core
             Console.WriteLine($"\nДорогой {UserName(name)}, ты ошибся при вводе команды, попробуй ещё раз");
         }
 
-        public static void ScheduleView(List<string> schedule)
+        public static void ScheduleView(List<string> schedule) //Метод вывода на экран элементов списка schedule
         {
             int count = 1;
 
             Console.WriteLine("");
-            if (schedule?.Count != 0)
+            if (schedule?.Count != 0) //Проверка на наличие элементов в списке
             {
-                foreach (var task in schedule)
+                foreach (var task in schedule) //Перечисление элементов в списке
                 {
                     Console.WriteLine($"{count}. {task}");
-                    count++;
+                    count++; //Инкремент для продолжения цикла
                 }
             }
             else
@@ -59,14 +59,14 @@ namespace dc.core
             }
         }
 
-        public static void AddTask(List<string> schedule, string task)
+        public static void AddTask(List<string> schedule, string task) //Метод добавляения элементов в список schedule
         {
-            schedule.Add(task);
+            schedule.Add(task); //Добавление элемента в конец списка schedule
         }
 
-        public static void DelTask(List<string> schedule, int taskNum)
+        public static void DelTask(List<string> schedule, int taskNum) //Метод удаления элемента из списка schedule
         {
-            schedule.RemoveAt(taskNum - 1);
+            schedule.RemoveAt(taskNum - 1); //Удаление элемента с указанным индексом из списка
         }
     }
 }

@@ -69,26 +69,26 @@ namespace dc.core //Используем пространство имен, со
                     case "/addtask":
                         Console.Write("\nВведи описание новой задачи: ");
                         string task = Console.ReadLine();
-                        MsgUtils.AddTask(schedule, task);
+                        MsgUtils.AddTask(schedule, task); // Вызов метода
                         Console.Write($"\nЗадача '{task}' успешно добавлена\n");
                         break;
                     case "-sw":
                     case "/showtasks":
-                        MsgUtils.ScheduleView(schedule);
+                        MsgUtils.ScheduleView(schedule); //Вызов метода
                         break;
                     case "-r":
                     case "/removetask":
-                        if (schedule?.Count != 0)
+                        if (schedule?.Count != 0) //Проверка на наличие элементов в списке
                         {
                             Console.Write("\nВведи номер задачи для удаления: ");
                             int taskNum = Convert.ToInt32(Console.ReadLine());
-                            if (taskNum > schedule?.Count || taskNum <= 0)
+                            if (taskNum > schedule?.Count || taskNum <= 0) //Проверка на валидность введенного значения
                             {
                                 Console.WriteLine("\nТакого номера задачи не существует, введи корректный номер задачи.");
                             }
                             else
                             {
-                                MsgUtils.DelTask(schedule, taskNum);
+                                MsgUtils.DelTask(schedule, taskNum); //Вызов метода
                             }
                         }
                         else
