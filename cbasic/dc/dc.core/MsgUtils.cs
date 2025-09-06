@@ -39,5 +39,34 @@ namespace dc.core
         {
             Console.WriteLine($"\nДорогой {UserName(name)}, ты ошибся при вводе команды, попробуй ещё раз");
         }
+
+        public static void ScheduleView(List<string> schedule)
+        {
+            int count = 1;
+
+            Console.WriteLine("");
+            if (schedule?.Count != 0)
+            {
+                foreach (var task in schedule)
+                {
+                    Console.WriteLine($"{count}. {task}");
+                    count++;
+                }
+            }
+            else
+            {
+                Console.WriteLine("*** У тебя пока что нет задач ***");
+            }
+        }
+
+        public static void AddTask(List<string> schedule, string task)
+        {
+            schedule.Add(task);
+        }
+
+        public static void DelTask(List<string> schedule, int taskNum)
+        {
+            schedule.RemoveAt(taskNum - 1);
+        }
     }
 }

@@ -9,10 +9,14 @@ namespace dc.core //Используем пространство имен, со
         {
             bool exit = false; //Назначение и инициализация переменной для выхода из цикла while
             string? name = ""; //Назначение и инициализация переменной
+            var schedule = new List<string>();
             LinkedList<string> menu = new(); //Используем связный список LinkedList<T> из пространства имен System.Collections.Generic
             menu.AddLast("Начать - /start"); //Добавление элемента в конец связного списка
             menu.AddLast("Помощь - /help");
             menu.AddLast("Информация - /info");
+            menu.AddLast("Добавить задачу - /addtask");
+            menu.AddLast("Список задач - /showtasks");
+            menu.AddLast("Удалить задачу - /removetask");
             menu.AddLast("Выход - /exit");
 
             while (!exit) //Цикл работает, пока exit не станет равен true
@@ -22,6 +26,7 @@ namespace dc.core //Используем пространство имен, со
 
                 switch (command) //Конструкция switch
                 {
+                    case "-s":
                     case "/start": //Один из кейсов конструкции switch
                         if (name == "") //Проверка на то, ввел ли пользователь имя
                         {
@@ -51,11 +56,45 @@ namespace dc.core //Используем пространство имен, со
                         Console.WriteLine("Команда '/info' - версия приложения, дата выпуска");
                         Console.WriteLine("Команда '/echo' - при вводе этой команды с аргументом (например, /echo Hello), программа возвращает введенный текст (в данном примере 'Hello')");
                         Console.WriteLine("Команда '/exit' - выход из программы (совет: нажми клавишу 'Enter' второй раз после ввода команды для более быстрого выхода;))\n");
+                        Console.WriteLine("Команда '/addtask' - добавление задачи и ее описание в конец списка");
+                        Console.WriteLine("Команда '/showtasks' - отображение списка всех задач");
+                        Console.WriteLine("Команда '/removetask' - удаление задачи, для удаления введи ее название (вместе с символом '/')");
                         break;
                     case "/info":
                         MsgUtils.CommandChoose(command, name);
                         Console.WriteLine("v1.0.0");
                         Console.WriteLine("Release date: 20.08.2025\n");
+                        break;
+                    case "+":
+                    case "/addtask":
+                        Console.Write("\nВведи описание новой задачи: ");
+                        string task = Console.ReadLine();
+                        MsgUtils.AddTask(schedule, task);
+                        Console.Write($"\nЗадача '{task}' успешно добавлена\n");
+                        break;
+                    case "-sw":
+                    case "/showtasks":
+                        MsgUtils.ScheduleView(schedule);
+                        break;
+                    case "-r":
+                    case "/removetask":
+                        if (schedule?.Count != 0)
+                        {
+                            Console.Write("\nВведи номер задачи для удаления: ");
+                            int taskNum = Convert.ToInt32(Console.ReadLine());
+                            if (taskNum > schedule?.Count || taskNum <= 0)
+                            {
+                                Console.WriteLine("\nТакого номера задачи не существует, введи корректный номер задачи.");
+                            }
+                            else
+                            {
+                                MsgUtils.DelTask(schedule, taskNum);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("\n*** У тебя пока что нет задач ***");
+                        }
                         break;
                     case "/exit":
                         exit = true; //Выход из цикла while
