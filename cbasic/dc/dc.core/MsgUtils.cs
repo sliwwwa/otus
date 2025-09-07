@@ -50,7 +50,7 @@ namespace dc.core
                 foreach (var task in schedule) //Перечисление элементов в списке
                 {
                     Console.WriteLine($"{count}. {task}");
-                    count++; //Инкремент для продолжения цикла
+                    count++; //Инкремент для вывода номера задачи в списке
                 }
             }
             else
