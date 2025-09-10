@@ -62,7 +62,7 @@ namespace dc.core //Используем пространство имен, со
                         break;
                     case "/info":
                         MsgUtils.CommandChoose(command, name);
-                        Console.WriteLine("v1.0.0");
+                        Console.WriteLine("v1.0.1");
                         Console.WriteLine("Release date: 20.08.2025\n");
                         break;
                     case "+":
@@ -80,6 +80,8 @@ namespace dc.core //Используем пространство имен, со
                     case "/removetask":
                         if (schedule?.Count != 0) //Проверка на наличие элементов в списке
                         {
+                            Console.WriteLine("\nСписок твоих задач:");
+                            MsgUtils.ScheduleView(schedule); //Вызов метода
                             Console.Write("\nВведи номер задачи для удаления: ");
                             int taskNum = Convert.ToInt32(Console.ReadLine());
                             if (taskNum > schedule?.Count || taskNum <= 0) //Проверка на валидность введенного значения
