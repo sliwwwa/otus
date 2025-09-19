@@ -5,16 +5,19 @@ namespace dc.core //Используем пространство имен, со
 {
     public class Core //Создаем публичный класс
     {
+        public static List<ToDoItem> Schedule { get; set; } = new List<ToDoItem>();
+        public static string UserName = "";
+
         public void CoreMethod() //Создаем публичный метод, который будем использовать в точке входа dc/dc.app/Program.cs
         {
+            ToDoUser? user = null;
             bool exit = false; //Назначение и инициализация переменной для выхода из цикла while
-//            string? name = ""; //Назначение и инициализация переменной
             Globals.Menu.AddLast("Начать - /start"); //Добавление элемента в конец связного списка
             Globals.Menu.AddLast("Помощь - /help");
             Globals.Menu.AddLast("Информация - /info");
-            Globals.Menu.AddLast("Добавить задачу - /addtask");
-            Globals.Menu.AddLast("Список задач - /showtasks");
-            Globals.Menu.AddLast("Удалить задачу - /removetask");
+//            Globals.Menu.AddLast("Добавить задачу - /addtask");
+//            Globals.Menu.AddLast("Список задач - /showtasks");
+//            Globals.Menu.AddLast("Удалить задачу - /removetask");
             Globals.Menu.AddLast("Выход - /exit");
 
             while (!exit) //Цикл работает, пока exit не станет равен true
@@ -26,14 +29,28 @@ namespace dc.core //Используем пространство имен, со
                 {
                     case "-s":
                     case "/start": //Один из кейсов конструкции switch
-                        if (Globals.UserName == "") //Проверка на то, ввел ли пользователь имя
+                        if (UserName == "")
                         {
-                            MsgUtils.RegisterUser();
+                            while (true)
+                            {
+                                try
+                                {
+                                    Console.Write("Введи свое имя: ");
+                                    user = new ToDoUser(Console.ReadLine());
+                                    UserName = user.TelegramUserName;
+                                    MsgUtils.MenuForRegisteredUser();
+                                    break;
+                                }
+                                catch (ArgumentException)
+                                {
+                                    MsgUtils.Nothing(UserName);
+                                }
+                            }
                             break;
                         }
                         else
                         {
-                            MsgUtils.ErrorCase(Globals.UserName); //Вызов метода
+                            MsgUtils.ErrorCase(UserName); //Вызов метода
                             break;
                         }
                     case "/help":
@@ -46,15 +63,40 @@ namespace dc.core //Используем пространство имен, со
                         break;
                     case "+":
                     case "/addtask":
-                        Console.Write("\nВведи описание новой задачи: ");
+                        if (user == null) { MsgUtils.ErrorCase(UserName); break; }
+
+                        while (true)
+                        {
+                            try
+                            {
+                                Console.Write("Введи описание новой задачи: ");
+                                var task = new ToDoItem(user, Console.ReadLine());
+                                Schedule?.Add(task);
+                                break;
+                            }
+                            catch (ArgumentException)
+                            {
+                                MsgUtils.Nothing(UserName);
+                            }
+                        }
+                        break;
+/*                        Console.Write("\nВведи описание новой задачи: ");
                         string task = Console.ReadLine();
                         MsgUtils.AddTask(Globals.Schedule, task); // Вызов метода
                         Console.Write($"\nЗадача '{task}' успешно добавлена\n");
-                        break;
+                        break;*/
                     case "-sw":
                     case "/showtasks":
-                        MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
+                        foreach (var task in Schedule)
+                        {
+                            Console.WriteLine(task.Name);
+                        }
+//                        MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
                         break;
+/*                    case: "/showalltasks":
+                        
+                    case: "/completetask":
+*/
                     case "-r":
                     case "/removetask":
                         MsgUtils.DelTask();

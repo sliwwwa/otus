@@ -19,25 +19,36 @@ namespace dc.core
             return showName; //Возврат значения
         }
 
-        public static void RegisterUser()
+        public static void MenuForRegisteredUser()
         {
-            Console.Write("Введи своё имя: ");
-            Globals.UserName = Console.ReadLine();
+//            Console.Write("Введи своё имя: ");
+//            Globals.UserName = Console.ReadLine();
 
-            if (Globals.UserName != "") //Проверка на то, ввел ли пользователь имя
+//            if (Globals.UserName != "") //Проверка на то, ввел ли пользователь имя
+//            {
+            Globals.Menu.RemoveFirst(); //Удаление первого элемента связного списка
+            var node = Globals.Menu.Find("Выход - /exit"); //Поиск элемента связного списка с данным содержимым
+
+            if (node != null) //Если нашли, то
             {
-                Globals.Menu.RemoveFirst(); //Удаление первого элемента связного списка
-                var node = Globals.Menu.Find("Выход - /exit"); //Поиск элемента связного списка с данным содержимым
-
-                if (node != null) //Если нашли, то
+                string[] items = {
+                    "Добавить задачу - /addtask",
+                    "Список задач - /showtasks",
+                    "Удалить задачу - /removetask",
+                    "Вывод строки - /echo"
+                };
+                foreach (string item in items)
                 {
-                    Globals.Menu.AddBefore(node, "Вывод строки - /echo"); //Добавление элемента связного списка с данным содержимым перед найденным ранее
+                    Globals.Menu.AddBefore(node, item);
                 }
+
+//                Globals.Menu.AddBefore(node, "Вывод строки - /echo"); //Добавление элемента связного списка с данным содержимым перед найденным ранее
             }
+/*            }
             else
             {
                 Nothing(Globals.UserName);
-            }
+            }*/
         }
 
         public static void ShowHelp()
@@ -58,6 +69,72 @@ namespace dc.core
             Console.WriteLine(Globals.Version);
             Console.WriteLine($"{Globals.ReleaseDate}\n");
 
+        }
+
+        public static void AddTask(List<string> schedule, string task) //Метод добавляения элементов в список schedule
+        {
+            schedule.Add(task); //Добавление элемента в конец списка schedule
+        }
+
+        public static void AllTaskView(List<ToDoItem> schedule) //Метод вывода на экран элементов списка schedule
+        {
+            int count = 1;
+
+            Console.WriteLine("");
+            if (schedule?.Count != 0) //Проверка на наличие элементов в списке
+            {
+                foreach (var task in schedule) //Перечисление элементов в списке
+                {
+                    Console.WriteLine($"{count}. {task.Name}");
+                    count++; //Инкремент для вывода номера задачи в списке
+                }
+            }
+            else
+            {
+                Console.WriteLine("У тебя пока что нет задач.");
+            }
+        }
+
+/*        public static void ActiveTaskView(List<string> schedule)
+        {
+            Console.WriteLine("");
+            if (schedule?.Count != 0) //Проверка на наличие элементов в списке
+            {
+                foreach (var task in schedule) //Перечисление элементов в списке
+                {
+                    Console.WriteLine($"{count}. {task}");
+                    count++; //Инкремент для вывода номера задачи в списке
+                }
+            }
+            else
+            {
+                Console.WriteLine("У тебя пока что нет задач.");
+            }
+        }*/
+
+        public static void DelTask() //Метод удаления элемента из списка schedule
+        {
+            if (Core.Schedule?.Count != 0) //Проверка на наличие элементов в списке
+            {
+                Console.WriteLine("\nСписок твоих задач:");
+                MsgUtils.AllTaskView(Core.Schedule); //Вызов метода
+                Console.Write("\nВведи номер задачи для удаления: ");
+                int taskNum = Convert.ToInt32(Console.ReadLine());
+                if (taskNum > Core.Schedule?.Count || taskNum <= 0) //Проверка на валидность введенного значения
+                {
+                    Console.WriteLine("\nТакого номера задачи не существует, введи корректный номер задачи.");
+                }
+                else
+                {
+                    Core.Schedule.RemoveAt(taskNum - 1); //Удаление элемента с указанным индексом из списка                    
+                    Console.WriteLine("Ты успешно удалил задачу.");
+                    MsgUtils.AllTaskView(Core.Schedule); //Вызов метода
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nУ тебя пока что нет задач.");
+            }
         }
 
         public static void ShowMenu(LinkedList<string> menu, string? name) //Метод выводит меню из связного списка
@@ -86,53 +163,9 @@ namespace dc.core
             Console.WriteLine($"\nДорогой {UserName(name)}, ты ничего не ввел, попробуй ещё раз.");
         }
 
-        public static void ScheduleView(List<string> schedule) //Метод вывода на экран элементов списка schedule
+        public static void NamePrint()
         {
-            int count = 1;
-
-            Console.WriteLine("");
-            if (schedule?.Count != 0) //Проверка на наличие элементов в списке
-            {
-                foreach (var task in schedule) //Перечисление элементов в списке
-                {
-                    Console.WriteLine($"{count}. {task}");
-                    count++; //Инкремент для вывода номера задачи в списке
-                }
-            }
-            else
-            {
-                Console.WriteLine("*** У тебя пока что нет задач ***");
-            }
-        }
-
-        public static void AddTask(List<string> schedule, string task) //Метод добавляения элементов в список schedule
-        {
-            schedule.Add(task); //Добавление элемента в конец списка schedule
-        }
-
-        public static void DelTask() //Метод удаления элемента из списка schedule
-        {
-            if (Globals.Schedule?.Count != 0) //Проверка на наличие элементов в списке
-            {
-                Console.WriteLine("\nСписок твоих задач:");
-                MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
-                Console.Write("\nВведи номер задачи для удаления: ");
-                int taskNum = Convert.ToInt32(Console.ReadLine());
-                if (taskNum > Globals.Schedule?.Count || taskNum <= 0) //Проверка на валидность введенного значения
-                {
-                    Console.WriteLine("\nТакого номера задачи не существует, введи корректный номер задачи.");
-                }
-                else
-                {
-                    Globals.Schedule.RemoveAt(taskNum - 1); //Удаление элемента с указанным индексом из списка                    
-                    Console.WriteLine("Ты успешно удалил задачу.");
-                    MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
-                }
-            }
-            else
-            {
-                Console.WriteLine("\n*** У тебя пока что нет задач ***");
-            }
+            Console.WriteLine(Core.UserName);
         }
     }
 }
