@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "/home/vatsa/.nuget/packages/": {}
+    "/home/alexxxts/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
+      "projectUniqueName": "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj",
       "projectName": "dc.core",
-      "projectPath": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
-      "packagesPath": "/home/vatsa/.nuget/packages/",
-      "outputPath": "/home/vatsa/otus/cbasic/dc/dc.core/obj/",
+      "projectPath": "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj",
+      "packagesPath": "/home/alexxxts/.nuget/packages/",
+      "outputPath": "/home/alexxxts/work/otus/cbasic/dc/dc.core/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/vatsa/.nuget/NuGet/NuGet.Config"
+        "/home/alexxxts/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

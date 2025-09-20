@@ -15,9 +15,6 @@ namespace dc.core //Используем пространство имен, со
             Globals.Menu.AddLast("Начать - /start"); //Добавление элемента в конец связного списка
             Globals.Menu.AddLast("Помощь - /help");
             Globals.Menu.AddLast("Информация - /info");
-//            Globals.Menu.AddLast("Добавить задачу - /addtask");
-//            Globals.Menu.AddLast("Список задач - /showtasks");
-//            Globals.Menu.AddLast("Удалить задачу - /removetask");
             Globals.Menu.AddLast("Выход - /exit");
 
             while (!exit) //Цикл работает, пока exit не станет равен true
@@ -80,23 +77,18 @@ namespace dc.core //Используем пространство имен, со
                             }
                         }
                         break;
-/*                        Console.Write("\nВведи описание новой задачи: ");
-                        string task = Console.ReadLine();
-                        MsgUtils.AddTask(Globals.Schedule, task); // Вызов метода
-                        Console.Write($"\nЗадача '{task}' успешно добавлена\n");
-                        break;*/
                     case "-sw":
-                    case "/showtasks":
-                        foreach (var task in Schedule)
-                        {
-                            Console.WriteLine(task.Name);
-                        }
-//                        MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
+                    case "/showactivetasks":
+                        MsgUtils.ActiveTaskView(Schedule);
                         break;
-/*                    case: "/showalltasks":
-                        
-                    case: "/completetask":
-*/
+                    case "-saw":
+                    case "/showalltasks":
+                        MsgUtils.AllTaskView(Schedule);
+                        break;
+                    case "-ct":
+                    case "/completetask":
+                        MsgUtils.CompleteTask(Schedule);
+                        break;
                     case "-r":
                     case "/removetask":
                         MsgUtils.DelTask();

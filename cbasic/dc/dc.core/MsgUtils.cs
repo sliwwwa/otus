@@ -21,11 +21,6 @@ namespace dc.core
 
         public static void MenuForRegisteredUser()
         {
-//            Console.Write("Введи своё имя: ");
-//            Globals.UserName = Console.ReadLine();
-
-//            if (Globals.UserName != "") //Проверка на то, ввел ли пользователь имя
-//            {
             Globals.Menu.RemoveFirst(); //Удаление первого элемента связного списка
             var node = Globals.Menu.Find("Выход - /exit"); //Поиск элемента связного списка с данным содержимым
 
@@ -33,7 +28,9 @@ namespace dc.core
             {
                 string[] items = {
                     "Добавить задачу - /addtask",
-                    "Список задач - /showtasks",
+                    "Список активных задач - /showactivetasks",
+                    "Список всех задач - /showalltasks",
+                    "Завершить задачу - /completetask",
                     "Удалить задачу - /removetask",
                     "Вывод строки - /echo"
                 };
@@ -41,14 +38,7 @@ namespace dc.core
                 {
                     Globals.Menu.AddBefore(node, item);
                 }
-
-//                Globals.Menu.AddBefore(node, "Вывод строки - /echo"); //Добавление элемента связного списка с данным содержимым перед найденным ранее
             }
-/*            }
-            else
-            {
-                Nothing(Globals.UserName);
-            }*/
         }
 
         public static void ShowHelp()
@@ -60,7 +50,9 @@ namespace dc.core
             Console.WriteLine("Команда '/echo' - при вводе этой команды с аргументом (например, /echo Hello), программа возвращает введенный текст (в данном примере 'Hello')");
             Console.WriteLine("Команда '/exit' - выход из программы (совет: нажми клавишу 'Enter' второй раз после ввода команды для более быстрого выхода;))");
             Console.WriteLine("Команда '/addtask' - добавление задачи и ее описание в конец списка");
-            Console.WriteLine("Команда '/showtasks' - отображение списка всех задач");
+            Console.WriteLine("Команда '/showactivetasks' - отображение списка активных задач");
+            Console.WriteLine("Команда '/showalltasks' - отображение списка всех задач");
+            Console.WriteLine("Команда '/completetask' - выполнение активной задачи, найденной по Id");
             Console.WriteLine("Команда '/removetask' - удаление задачи, для удаления введи ее название (вместе с символом '/')");
         }
 
@@ -76,6 +68,32 @@ namespace dc.core
             schedule.Add(task); //Добавление элемента в конец списка schedule
         }
 
+        public static void CompleteTask(List<ToDoItem> schedule)
+        {
+            int count = 0;
+            string taskId = "";
+            Console.Write("\nВведи id задачи для выполнения: ");
+            taskId = Console.ReadLine();
+
+            foreach (ToDoItem task in schedule)
+            {
+                if (taskId == task.Id.ToString())
+                {
+                    task.State = ToDoItem.ToDoItemState.Completed;
+                    task.StateChangedAt = DateTime.UtcNow;
+                    Console.WriteLine("\nЗадача выполнена.\n");
+                    count++;
+                }
+            }
+
+            if (count == 0)
+                {
+                    Console.WriteLine("Задача с таким Id не найдена");
+                }
+            
+            MsgUtils.AllTaskView(schedule);
+        }
+
         public static void AllTaskView(List<ToDoItem> schedule) //Метод вывода на экран элементов списка schedule
         {
             int count = 1;
@@ -85,8 +103,11 @@ namespace dc.core
             {
                 foreach (var task in schedule) //Перечисление элементов в списке
                 {
-                    Console.WriteLine($"{count}. {task.Name}");
-                    count++; //Инкремент для вывода номера задачи в списке
+                    if (task.State == ToDoItem.ToDoItemState.Active || task.State == ToDoItem.ToDoItemState.Completed)
+                    {
+                        Console.WriteLine($"{count}. ({task.State}) {task.Name} - {task.CreatedAt} - {task.Id} - completed at: {task.StateChangedAt}");
+                        count++; //Инкремент для вывода номера задачи в списке
+                    }
                 }
             }
             else
@@ -95,22 +116,27 @@ namespace dc.core
             }
         }
 
-/*        public static void ActiveTaskView(List<string> schedule)
+        public static void ActiveTaskView(List<ToDoItem> schedule)
         {
+            int count = 1;
+
             Console.WriteLine("");
             if (schedule?.Count != 0) //Проверка на наличие элементов в списке
             {
                 foreach (var task in schedule) //Перечисление элементов в списке
                 {
-                    Console.WriteLine($"{count}. {task}");
-                    count++; //Инкремент для вывода номера задачи в списке
+                    if (task.State == ToDoItem.ToDoItemState.Active)
+                    {
+                        Console.WriteLine($"{count}. ({task.State}) {task.Name} - {task.CreatedAt} - {task.Id}");
+                        count++; //Инкремент для вывода номера задачи в списке
+                    }
                 }
             }
             else
             {
-                Console.WriteLine("У тебя пока что нет задач.");
+                Console.WriteLine("У тебя пока что нет выполненных задач.");
             }
-        }*/
+        }
 
         public static void DelTask() //Метод удаления элемента из списка schedule
         {
