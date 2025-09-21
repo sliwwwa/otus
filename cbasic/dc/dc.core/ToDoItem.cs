@@ -9,13 +9,13 @@ namespace dc.core
         public ToDoUser User { get; private set; }
         public string Name { get; private set; }
         public DateTime CreatedAt { get; private set; }
-        public ToDoItemState State { get; private set; }
-        public DateTime? StateChangedAt { get; private set; }
+        public ToDoItemState State { get; set; }
+        public DateTime? StateChangedAt { get; set; }
 
         public ToDoItem(ToDoUser user, string name)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("Ваш username Телеграма не дложен быть пустым", nameof(name));
+                throw new ArgumentException("Введено невалидное имя, либо оно не введено.", nameof(name));
 
             Id = Guid.NewGuid();
             Name = name;

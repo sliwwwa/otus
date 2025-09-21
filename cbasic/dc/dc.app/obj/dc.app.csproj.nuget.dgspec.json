@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/vatsa/otus/cbasic/dc/dc.app/dc.app.csproj": {}
+    "/home/alexxxts/work/otus/cbasic/dc/dc.app/dc.app.csproj": {}
   },
   "projects": {
-    "/home/vatsa/otus/cbasic/dc/dc.app/dc.app.csproj": {
+    "/home/alexxxts/work/otus/cbasic/dc/dc.app/dc.app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vatsa/otus/cbasic/dc/dc.app/dc.app.csproj",
+        "projectUniqueName": "/home/alexxxts/work/otus/cbasic/dc/dc.app/dc.app.csproj",
         "projectName": "dc.app",
-        "projectPath": "/home/vatsa/otus/cbasic/dc/dc.app/dc.app.csproj",
-        "packagesPath": "/home/vatsa/.nuget/packages/",
-        "outputPath": "/home/vatsa/otus/cbasic/dc/dc.app/obj/",
+        "projectPath": "/home/alexxxts/work/otus/cbasic/dc/dc.app/dc.app.csproj",
+        "packagesPath": "/home/alexxxts/.nuget/packages/",
+        "outputPath": "/home/alexxxts/work/otus/cbasic/dc/dc.app/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/vatsa/.nuget/NuGet/NuGet.Config"
+          "/home/alexxxts/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -27,8 +27,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj": {
-                "projectPath": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj"
+              "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj": {
+                "projectPath": "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj"
               }
             }
           }
@@ -64,21 +64,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj": {
+    "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
+        "projectUniqueName": "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj",
         "projectName": "dc.core",
-        "projectPath": "/home/vatsa/otus/cbasic/dc/dc.core/dc.core.csproj",
-        "packagesPath": "/home/vatsa/.nuget/packages/",
-        "outputPath": "/home/vatsa/otus/cbasic/dc/dc.core/obj/",
+        "projectPath": "/home/alexxxts/work/otus/cbasic/dc/dc.core/dc.core.csproj",
+        "packagesPath": "/home/alexxxts/.nuget/packages/",
+        "outputPath": "/home/alexxxts/work/otus/cbasic/dc/dc.core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/vatsa/.nuget/NuGet/NuGet.Config"
+          "/home/alexxxts/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -124,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.110/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
