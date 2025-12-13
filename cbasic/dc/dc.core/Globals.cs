@@ -6,8 +6,10 @@ namespace dc.core
     {
         public static string UserName = "";
         public static LinkedList<string> Menu = new(); //Используем связный список LinkedList<T> из пространства имен System.Collections.Generic
-        public static string Version = "v1.0.2";
+        public static string Version = "\nv1.0.2";
         public static string ReleaseDate = "Release date: 20.08.2025";
+        public static int MaxTaskNum = 5;
+        public static int MaxTaskNameLength = 20;
 //        public static List<string> Schedule = new();
     }
 }

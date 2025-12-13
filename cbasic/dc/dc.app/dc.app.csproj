@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\dc.core\dc.core.csproj" />
+    <ProjectReference Include="..\third_party\Otus.ToDoList.ConsoleBot\Otus.ToDoList.ConsoleBot.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -1,5 +1,7 @@
 using System; //Подключение пространства имен System
 using System.Collections.Generic; //Подключение ПИ для использования связного списка LinkedList<T>
+using Otus.ToDoList.ConsoleBot;
+//using Otus.ToDoList.ConsoleBot.Types;
 
 namespace dc.core //Используем пространство имен, созданное командой dotnet new classlib -n dc.core
 {
@@ -15,6 +17,9 @@ namespace dc.core //Используем пространство имен, со
             Globals.Menu.AddLast("Начать - /start"); //Добавление элемента в конец связного списка
             Globals.Menu.AddLast("Помощь - /help");
             Globals.Menu.AddLast("Информация - /info");
+//            Globals.Menu.AddLast("Добавить задачу - /addtask");
+//            Globals.Menu.AddLast("Список задач - /showtasks");
+//            Globals.Menu.AddLast("Удалить задачу - /removetask");
             Globals.Menu.AddLast("Выход - /exit");
 
             while (!exit) //Цикл работает, пока exit не станет равен true
@@ -24,7 +29,7 @@ namespace dc.core //Используем пространство имен, со
 
                 switch (command) //Конструкция switch
                 {
-                    case "-s":
+/*                    case "-s":
                     case "/start": //Один из кейсов конструкции switch
                         if (UserName == "")
                         {
@@ -32,10 +37,8 @@ namespace dc.core //Используем пространство имен, со
                             {
                                 try
                                 {
-
-                                    
                                     Console.Write("Введи свое имя: ");
-                                    user = new ToDoUser(Console.ReadLine());
+                                    user = new ToDoUser(Console.ReadLine(), ConsoleBotClient._user.Id);
                                     UserName = user.TelegramUserName;
                                     MsgUtils.MenuForRegisteredUser();
                                     break;
@@ -51,7 +54,7 @@ namespace dc.core //Используем пространство имен, со
                         {
                             MsgUtils.ErrorCase(UserName); //Вызов метода
                             break;
-                        }
+                        }*/
                     case "/help":
                         MsgUtils.CommandChoose(command, Globals.UserName); //Вызов метода
                         MsgUtils.ShowHelp();
@@ -79,18 +82,23 @@ namespace dc.core //Используем пространство имен, со
                             }
                         }
                         break;
+/*                        Console.Write("\nВведи описание новой задачи: ");
+                        string task = Console.ReadLine();
+                        MsgUtils.AddTask(Globals.Schedule, task); // Вызов метода
+                        Console.Write($"\nЗадача '{task}' успешно добавлена\n");
+                        break;*/
                     case "-sw":
-                    case "/showactivetasks":
-                        MsgUtils.ActiveTaskView(Schedule);
+                    case "/showtasks":
+                        foreach (var task in Schedule)
+                        {
+                            Console.WriteLine(task.Name);
+                        }
+//                        MsgUtils.ScheduleView(Globals.Schedule); //Вызов метода
                         break;
-                    case "-saw":
-                    case "/showalltasks":
-                        MsgUtils.AllTaskView(Schedule);
-                        break;
-                    case "-ct":
-                    case "/completetask":
-                        MsgUtils.CompleteTask(Schedule);
-                        break;
+/*                    case: "/showalltasks":
+                        
+                    case: "/completetask":
+*/
                     case "-r":
                     case "/removetask":
                         MsgUtils.DelTask();
@@ -99,6 +107,8 @@ namespace dc.core //Используем пространство имен, со
                     case "/exit":
                         exit = true; //Выход из цикла while
                         break;
+//                    case "test":
+//                        UpdateHandler.HandleUpdateAsync("slava", 1);
                     default:
                         if (Globals.UserName != "" && (command == "/echo" || command == "/echo ")) //Проверка имени, чтобы команда не сработала до регистрации пользователя. Проверка на наличие команды.
                         {
