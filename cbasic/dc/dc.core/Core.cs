@@ -32,6 +32,8 @@ namespace dc.core //Используем пространство имен, со
                             {
                                 try
                                 {
+
+                                    
                                     Console.Write("Введи свое имя: ");
                                     user = new ToDoUser(Console.ReadLine());
                                     UserName = user.TelegramUserName;
